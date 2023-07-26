@@ -1,0 +1,169 @@
+#:kivy 1.0
+
+<GedTreeView>:
+
+    canvas.before:
+        Color:
+            rgba: 1,1,1,1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+  
+    canvas.after:
+        Color:
+            rgba: 0,0,0, 0.5 if self.busy else 0.0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    
+    InfiniteScatter:
+        do_rotation: False
+        size: tree.size
+        canvas:
+            Color:
+                rgba: 1,0,0,0
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        GedTree:
+            vissible_size: root.size
+            id: tree
+            canvas:
+                Color:
+                    rgba: 1,1,1,1
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+            size: root.size
+            base: root.base
+                    
+
+<Edge>:
+    canvas:
+        Color:
+            rgba: 0,0,0,1
+        Bezier:
+            segments: 50
+            points: self.make_bezier(self.node1.center, self.node2.center)
+
+<NodeLabel>:
+    canvas.before:
+        Color:
+            rgba: 0.5, 0.5, 0.5, 1.0 if self.touched else 0.0
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<PopupMenu>:
+    size_hint: None, None
+    size: 500, 75
+
+    canvas:
+        Color:
+            rgb: 1, 1, 1
+        BorderImage:
+            source: 'menu-background.png'
+            border: 16, 16, 16, 16
+            pos: self.pos
+            size: self.size
+
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 10
+        padding: 15
+        size: root.size
+    
+        LightButton:
+            text: 'Open...'
+            on_release: root.close(); root.app.open_ged_popup();
+        LightButton:
+            text: 'Configure...'
+            on_release: root.close(); root.app.open_settings_pannel()
+        LightButton:
+            text: 'Tipp...'
+            on_release: root.close(); root.app.view.children[0].children[0].show_tip()
+
+<OpenGedContent>:
+    orientation: 'vertical'
+    files: fileview
+    scroll: scrollview
+
+    ScrollView:
+        id: scrollview
+        TreeView:
+            size_hint_y: None
+            height: self.minimum_height
+            id: fileview
+            root_options: {'color': (0,0,0,1), 'text': 'Local GED files'}
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+        spacing: 10
+
+        LightButton:
+            text: 'Cancel'
+            on_release: root.popup.dismiss()
+        LightButton:
+            text: 'Open'
+            on_release: root.open_ged()
+
+<ShowNodeContent>
+    orientation: 'vertical'
+    ScrollView:
+        Label:
+            color: 0,0,0,1
+            text: root.text
+            size_hint_y: None
+            height: self.texture_size[1] + 16
+            text_size: (self.parent.width, None)
+            halign: 'left'
+
+<MessageContent>
+    orientation: 'vertical'
+    ScrollView:
+        Label:
+            color: 0,0,0,1
+            text: root.text
+            size_hint_y: None
+            height: self.texture_size[1] + 16
+            text_size: (self.parent.width, None)
+            halign: 'left'
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+        spacing: 10
+
+        LightButton:
+            text: 'OK'
+            on_release: root.popup.dismiss()
+
+
+<TipContent>
+    orientation: 'vertical'
+    Label:
+        color: 0,0,0,1
+        text: root.tip()
+    Label:
+        color: 0,0,0,1
+        text: "Please consider:"
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: None
+        height: 50
+        spacing: 10
+
+        LightButton:
+            text: 'Buy full version...'
+            on_release: root.view('market://details?id=net.ardoe.hakan.gedtree')
+        LightButton:
+            text: 'Rate app...'
+            on_release: root.view('market://details?id=net.ardoe.hakan.gedtreefree')
+        LightButton:
+            text: 'Later'
+            on_release: root.popup.dismiss()
+

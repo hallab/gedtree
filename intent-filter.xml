@@ -1,0 +1,37 @@
+      <intent-filter>
+        <action android:name="android.intent.action.VIEW" />
+        <category android:name="android.intent.category.DEFAULT" />
+        <category android:name="android.intent.category.BROWSABLE" />
+        <data android:scheme="file" />
+        <data android:mimeType="*/*" />
+        <data android:pathPattern=".*\\.ged" />
+        <data android:pathPattern=".*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.ged" />
+        <data android:pathPattern=".*\\.GED" />
+        <data android:pathPattern=".*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.GED" />
+        <data android:pathPattern=".*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*/.*\\.GED" />
+        <data android:host="*" />
+      </intent-filter>
+

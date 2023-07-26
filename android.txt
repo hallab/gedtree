@@ -1,0 +1,3 @@
+title=GedTree
+author=Hallab AB
+orientation=sensor
